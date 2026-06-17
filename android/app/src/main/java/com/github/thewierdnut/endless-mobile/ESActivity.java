@@ -2,6 +2,9 @@ package com.github.thewierdnut.endless_mobile;
 
 
 import org.libsdl.app.SDLActivity;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.WindowManager;
 import android.content.Intent;
 import java.io.OutputStream;
 import java.io.InputStream;
@@ -28,6 +31,16 @@ public class ESActivity extends SDLActivity
     static int SAVE_FILE = 1;
     static int GET_FILE = 2;
     static int UNZIP_PLUGIN = 3;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            getWindow().getAttributes().layoutInDisplayCutoutMode =
+                WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
+        }
+    }
 
     protected String[] getLibraries()
     {
