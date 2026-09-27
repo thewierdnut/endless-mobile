@@ -19,6 +19,8 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 #include "Rectangle.h"
 #include "Command.h"
 
+#include "SDL.h"
+
 #include <functional>
 #include <list>
 #include <memory>
@@ -26,8 +28,7 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 #include <string>
 #include <vector>
 
-#include <SDL2/SDL.h>
-
+class Command;
 class Point;
 class Sprite;
 class TestContext;

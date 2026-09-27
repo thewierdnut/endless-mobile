@@ -86,6 +86,11 @@ public:
 	virtual void Step() override;
 	virtual void Draw() override;
 
+	// Draw the planet orbits in the currently selected system, on the current day.
+	void DrawOrbits();
+	// Draw the legend, correlating between a system's color and the value of the
+	// selected "commodity," which may be reputation level, outfitter size, etc.
+	virtual void DrawKey() const;
 	// Draw elements common for all map panels that need to be placed
 	// on top of everything else. This includes distance info, map mode buttons,
 	// escort/storage tooltips, and the non-routable system warning.
@@ -121,6 +126,7 @@ protected:
 
 	virtual double SystemValue(const System *system) const;
 
+	const System *ClickedSystem(int x, int y) const;
 	void Select(const System *system);
 	void Find(const std::string &name);
 
@@ -160,6 +166,11 @@ protected:
 	int step = 0;
 	std::string buttonCondition;
 
+	// Default display scaling for orbits within the currently displayed system.
+	double scale = .03;
+	// Vector offsets from the center of the "orbits" UI.
+	std::map<const Planet *, Point> planets;
+
 	// Distance from the screen center to the nearest owned system,
 	// for use in determining which governments are in the legend.
 	std::map<const Government *, double> closeGovernments;
@@ -178,6 +189,9 @@ protected:
 	Tooltip tooltip;
 
 	bool fromMission = false;
+	// A simplified map panel shows less buttons and has less features.
+	// Used for panels where the map is a backdrop rather than being the main focus.
+	bool isSimplified = false;
 
 	enum {FOCUS_DETAIL, FOCUS_MAP, FOCUS_BUTTONS} controllerFocus = FOCUS_MAP;
 

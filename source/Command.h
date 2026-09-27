@@ -115,6 +115,9 @@ public:
 	Command() = default;
 	// Create a command representing whatever command is mapped to the given
 	// keycode (if any).
+#ifdef ES_USE_SDL3
+	explicit Command(uint32_t keycode);
+#else
 	explicit Command(int keycode);
 	// Create a command from an sdl command event
 	explicit Command(const union SDL_Event &event);
@@ -124,6 +127,7 @@ public:
 	static Command FromTrigger(uint8_t axis, bool positive);
 	// Create a command representing a game controller button press
 	static Command FromButton(uint8_t button);
+#endif
 
 	// Read the current keyboard state and set this object to reflect it.
 	void ReadKeyboard();
