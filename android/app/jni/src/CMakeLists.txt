@@ -89,6 +89,7 @@ add_library(main SHARED
    ${CMAKE_SOURCE_DIR}/../../../source/audio/Audio.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/audio/player/AudioPlayer.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/audio/supplier/AudioSupplier.cpp
+   ${CMAKE_SOURCE_DIR}/../../../source/audio/supplier/AsyncAudioSupplier.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/audio/supplier/WavSupplier.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/audio/supplier/effect/Fade.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/BankPanel.cpp
@@ -111,6 +112,7 @@ add_library(main SHARED
    ${CMAKE_SOURCE_DIR}/../../../source/ConditionSet.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/ConditionAssignments.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/ConditionsStore.cpp
+   ${CMAKE_SOURCE_DIR}/../../../source/Confusion.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/Conversation.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/ConversationPanel.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/CoreStartData.cpp
@@ -227,7 +229,8 @@ add_library(main SHARED
    ${CMAKE_SOURCE_DIR}/../../../source/PlanetPanel.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/PlayerInfo.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/PlayerInfoPanel.cpp
-   ${CMAKE_SOURCE_DIR}/../../../source/Plugins.cpp
+   ${CMAKE_SOURCE_DIR}/../../../source/Plugin.cpp
+   ${CMAKE_SOURCE_DIR}/../../../source/PluginManager.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/Point.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/shader/PointerShader.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/Politics.cpp
@@ -248,6 +251,7 @@ add_library(main SHARED
    ${CMAKE_SOURCE_DIR}/../../../source/SavedGame.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/Screen.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/ScrollBar.cpp
+   ${CMAKE_SOURCE_DIR}/../../../source/ScrollArea.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/shader/Shader.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/Ship.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/ShipEvent.cpp
@@ -256,7 +260,10 @@ add_library(main SHARED
    ${CMAKE_SOURCE_DIR}/../../../source/ShipJumpNavigation.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/ShipManager.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/ShipyardPanel.cpp
+   ${CMAKE_SOURCE_DIR}/../../../source/ship/ResourceLevels.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/ship/ShipAICache.cpp
+   ${CMAKE_SOURCE_DIR}/../../../source/ship/ShipAttributeCache.cpp
+   ${CMAKE_SOURCE_DIR}/../../../source/ship/ShipFactory.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/ShopPanel.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/audio/Sound.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/SpaceportPanel.cpp
@@ -269,9 +276,11 @@ add_library(main SHARED
    ${CMAKE_SOURCE_DIR}/../../../source/StartConditions.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/StartConditionsPanel.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/StellarObject.cpp
+   ${CMAKE_SOURCE_DIR}/../../../source/StellarObjectSpriteData.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/StringInterner.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/Swizzle.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/System.cpp
+   ${CMAKE_SOURCE_DIR}/../../../source/TableArea.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/TaskQueue.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/test/Test.cpp
    ${CMAKE_SOURCE_DIR}/../../../source/test/TestContext.cpp
@@ -314,5 +323,3 @@ target_link_libraries(main
    jpeg-static
    GLESv3
 )
-
-

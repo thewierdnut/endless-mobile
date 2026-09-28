@@ -327,7 +327,7 @@ bool PreferencesPanel::KeyDown(SDL_Keycode key, Uint16 mod, const Command &comma
 	else if (page == 'p' && key == 'r')
 	{
 		// remove plugin
-		auto plugin = Plugins::Get().Find(selectedPlugin);
+		auto plugin = PluginManager::Get().Find(selectedPlugin);
 		if(plugin)
 		{
 			const std::string plugin_path = plugin->path;

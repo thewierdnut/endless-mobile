@@ -186,6 +186,22 @@ double ImageBuffer::CalculateArea() const
 {
 	if(!pixels)
 		return 0.;
+	// BEGIN Android fork: on this platform textures are stored compressed
+	// (KTX/ETC2), so Begin() below cannot be used (it asserts !compressed_format
+	// and assumes raw RGBA). Read alpha through the format-agnostic GetAlpha(),
+	// which decodes ETC2 alpha for us. Remove this block if upstream ever makes
+	// the general path below compression-aware.
+	if(compressed_format)
+	{
+		double area = 0.;
+		for(int i = 0; i < frames; ++i)
+			for(int y = 0; y < height; ++y)
+				for(int x = 0; x < width; ++x)
+					if(GetAlpha(i, x, y))
+						++area;
+		return area / frames;
+	}
+	// END Android fork
 	double area = 0.;
 	for(int i = 0; i < frames; ++i)
 		for(int y = 0; y < height; ++y)
