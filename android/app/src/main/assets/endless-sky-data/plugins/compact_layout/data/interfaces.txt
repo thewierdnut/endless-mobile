@@ -488,9 +488,56 @@ interface "trade"
 	box "content"
 		from -310 -63 to 190 194
 
+	value "column: name" 20
+	value "column: price" 140
+	value "column: price level" 180
+	value "column: profit" 260
+	value "column: buy" 310
+	value "column: sell" 370
+	value "column: in cargo hold" 430
+
+	box "buy multiplier"
+		from -10 -63
+		dimensions 58 16
+	box "sell multiplier"
+		from 50 -63
+		dimensions 58 16
+
 	fill
 		center -60 -46
 		dimensions 480 1
+
+	label "Commodity"
+		align top left
+		from -290 -63
+		color bright
+	label "Price"
+		align top left
+		from -170 -63
+		color bright
+	visible if "has profit"
+	label "Profit"
+		align top left
+		from -60 -63
+		color bright
+	visible
+	label "In Hold"
+		align top left
+		from 120 -63
+		color bright
+
+	string "other cargo"
+		align left
+		from -290 178
+		color medium
+	label "free:"
+		align left
+		from 65 178
+		color bright
+	string "free cargo space"
+		align left
+		from 120 178
+		color bright
 
 	active if "can buy"
 	sprite "ui/dialog cancel"
@@ -499,10 +546,9 @@ interface "trade"
 		center 40 214
 		dimensions 70 30
 
-	sprite "ui/wide button"
-		center 130 214
-
 	active if "can sell"
+	sprite "ui/dialog cancel"
+		center 130 214
 	button e "S_ell All"
 		center 130 214
 		dimensions 90 30
@@ -510,7 +556,7 @@ interface "trade"
 	active if "can sell minables"
 	sprite "ui/wide button"
 		center -150 214
-	button m "Sell _Minables"
+	button n "Sell Mi_nables"
 		center -150 214
 		dimensions 90 30
 
@@ -525,9 +571,56 @@ interface "trade (small screen)"
 	box "content"
 		from -310 -63 to 190 194
 
+	value "column: name" 20
+	value "column: price" 140
+	value "column: price level" 180
+	value "column: profit" 260
+	value "column: buy" 310
+	value "column: sell" 370
+	value "column: in cargo hold" 430
+
+	box "buy multiplier"
+		from -10 -63
+		dimensions 58 16
+	box "sell multiplier"
+		from 50 -63
+		dimensions 58 16
+
 	fill
 		center -60 -46
 		dimensions 480 1
+
+	label "Commodity"
+		align top left
+		from -290 -63
+		color bright
+	label "Price"
+		align top left
+		from -170 -63
+		color bright
+	visible if "has profit"
+	label "Profit"
+		align top left
+		from -60 -63
+		color bright
+	visible
+	label "In Hold"
+		align top left
+		from 120 -63
+		color bright
+
+	string "other cargo"
+		align left
+		from -290 178
+		color medium
+	label "free:"
+		align left
+		from 65 178
+		color bright
+	string "free cargo space"
+		align left
+		from 120 178
+		color bright
 
 	active if "can buy"
 	sprite "ui/dialog cancel"
@@ -536,10 +629,9 @@ interface "trade (small screen)"
 		center 40 214
 		dimensions 70 30
 
-	sprite "ui/wide button"
-		center 130 214
-
 	active if "can sell"
+	sprite "ui/dialog cancel"
+		center 130 214
 	button e "S_ell All"
 		center 130 214
 		dimensions 90 30
@@ -547,7 +639,7 @@ interface "trade (small screen)"
 	active if "can sell minables"
 	sprite "ui/wide button"
 		center -150 214
-	button m "Sell _Minables"
+	button n "Sell Mi_nables"
 		center -150 214
 		dimensions 90 30
 
